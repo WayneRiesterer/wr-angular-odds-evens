@@ -1,0 +1,41 @@
+<div class="container">
+	<h1>Odds & Evens</h1>
+
+	<hr>
+
+	<p>
+		This application emits numbers and places them into the categories 'Odd Numbers' and 'Even Numbers' as an example of conditionally rendering output.
+	</p>
+
+	<button *ngIf="!isActive" class="btn btn-success" type="button" (click)="onStart()">Start</button>
+	<button *ngIf="isActive" class="btn btn-danger" type="button" (click)="onStop()">Stop</button>
+  <button class="btn btn-primary" type="button" (click)="onClear()">Clear</button>
+  <button class="btn btn-secondary" type="button" (click)="onReset()">Reset</button>
+
+	<div class="row mt-3 text-center">
+    <div class="col-12 text-left">
+      <p><strong>Current Number:</strong> {{ currentNumber }}</p>
+    </div>
+		<div class="col-6">
+			<div class="card">
+				<header class="card-header bg-info text-white">
+					Odd Numbers
+				</header>
+				<div class="card-body">
+					<app-number-item *ngFor="let number of oddNumbers" [numberItem]="number"></app-number-item>
+				</div>
+			</div>
+		</div>
+
+		<div class="col-6">
+			<div class="card">
+				<header class="card-header bg-warning text-white">
+					Even Numbers
+				</header>
+				<div class="card-body">
+					<app-number-item *ngFor="let number of evenNumbers" [numberItem]="number"></app-number-item>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
